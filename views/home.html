@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>POKECAL</title>
+        <meta charset="utf-8">
+        <script src="/index_bundle.js"></script>
+    </head>
+    <body>
+        <h2><a href="home.html">POKE CALCULATOR</a></h2>
+        <br><br>
+        -- 포켓몬 -- <br>
+        <input type="text" id="pokename">
+        <button id="btn_submit"> Search </button>
+        <br>
+        <table id='sample builder'>
+            <tbody id='sample table'>
+            <tr id='col label'>
+                <td> </td>
+                <td>종족값</td>
+                <td>개체값</td>
+                <td>노력치</td>
+                <td>실측치</td>
+            </tr>
+            <tr id='hp builder'>
+                <td>HP</td>
+                <td><input type="text" style="width:50px" id='HPstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            <tr id='atk builder'>
+                <td>Atk</td>
+                <td><input type="text" style="width:50px" id='Atkstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            <tr id='def builder'>
+                <td>Def</td>
+                <td><input type="text" style="width:50px" id='Defstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            <tr id='spa builder'>
+                <td>Sp.Atk</td>
+                <td><input type="text" style="width:50px" id='SpAstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            <tr id='spd builder'>
+                <td>Sp.Def</td>
+                <td><input type="text" style="width:50px" id='SpDstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            <tr id='spe builder'>
+                <td>Speed</td>
+                <td><input type="text" style="width:50px" id='Spdstat' value='0'></td>
+                <td><input type="text" style="width:50px" value='31'></td>
+                <td><input type="text" style="width:50px" value='0'></td>
+                <td><input type="text" style="width:50px"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button id='btn calculator'>계산</button>
+        <ul id="pokelist"></ul>
+
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/KrK5XlhpRhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    </body>
+    
+    </html>

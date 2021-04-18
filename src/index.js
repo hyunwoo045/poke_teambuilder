@@ -26,7 +26,6 @@ window.onload = function() {
                 onePoke.innerHTML = `${v}`;
                 onePoke.class = 'pokecandi';
                 onePoke.addEventListener('click', function(e){
-                    console.log(e.target.innerText);
                     statSetter(e.target.innerText);
                 });
                 pokeListSetter.appendChild(onePoke);
@@ -53,7 +52,6 @@ window.onload = function() {
                     onePoke.innerHTML = `${curName}`;
                     onePoke.class = 'pokecandi';
                     onePoke.addEventListener('click', function(e){
-                        console.log(e.target);
                         statSetter(e.target.innerHTML);
                     });
                     pokeListSetter.appendChild(onePoke);
@@ -71,18 +69,27 @@ window.onload = function() {
     });
 
     document.getElementById('btn calculator').addEventListener('click', function(){
-        console.log('계산');
         const SampleTable = document.getElementById('sample table');
         for (var i=1; i<SampleTable.children.length; i++) {
             var curCol = SampleTable.children[i];
             var base = Number(curCol.children[1].firstChild.value);
             var IV = Number(curCol.children[2].firstChild.value);
-            var EV = Number(curCol.children[3].firstChild.value);
+            var EV = curCol.children[3].firstChild.value;
             if (i===1) {
                 curCol.children[4].firstChild.value = Math.floor(((base * 2 + IV + EV / 4) * 0.5) + 10 + 50);
                 // console.log(result);
             } else {
-                curCol.children[4].firstChild.value = Math.floor((base * 2 + IV + EV / 4) * 0.5 + 5);
+                var corr = 1;
+                console.log(EV.slice(-1));
+                if (EV.slice(-1) === '+') {
+                    EV = EV.substring(0, EV.length - 1);
+                    corr = 1.1;
+                } else if (EV.slice(-1) === '-') {
+                    EV = EV.substring(0, EV.length - 1);
+                    corr = 0.9;
+                }
+                EV = Number(EV);
+                curCol.children[4].firstChild.value = Math.floor(((base * 2 + IV + EV / 4) * 0.5 + 5) * corr);
             }
         }
     })

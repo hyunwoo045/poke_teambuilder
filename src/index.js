@@ -1,5 +1,5 @@
-import Dex from './pokedex.js';
-import moveList from './movelist.js';
+import Dex from './../data/pokedex.js';
+import moveList from './../data/movelist.js';
 
 window.onload = function() {
     var chartConfig = {
@@ -83,19 +83,29 @@ window.onload = function() {
 
     const pokeName = document.getElementById("pokename");
     pokeName.addEventListener('click', function(){
-        const pokeListSetter = document.getElementById("pokelist");
+        const bottomDiv = document.getElementById('bottom div');
+        while (bottomDiv.hasChildNodes()) {
+            bottomDiv.removeChild(bottomDiv.firstChild);
+        }
+        const pokeListSetter = document.createElement('ul');
+        pokeListSetter.id = "pokelist";
+        var fragment = new DocumentFragment();
         if (!pokeListSetter.hasChildNodes()) {
             Object.keys(Dex).forEach(function(v){
                 const onePoke = document.createElement('li');
                 onePoke.innerHTML = `${v}`;
-                onePoke.class = 'pokecandi';
                 onePoke.addEventListener('click', function(e){
                     statSetter(e.target.innerText);
+                    document.getElementById('pokename').value = v;
                 });
-                pokeListSetter.appendChild(onePoke);
+                fragment.appendChild(onePoke);
             });
+            pokeListSetter.appendChild(fragment);
         }
+        bottomDiv.appendChild(pokeListSetter);
     });
+
+    
     var throttle = null;
     function keyUpFn(el){
         if (!throttle) {
@@ -109,6 +119,7 @@ window.onload = function() {
             }
             var pokeArr = [];
             pokeArr = Object.keys(Dex);
+            var fragment = new DocumentFragment();
             for (var i=0; i<pokeArr.length; i++) {
                 if (pokeArr[i].includes(throttle)) {
                     var curName = pokeArr[i];
@@ -117,20 +128,23 @@ window.onload = function() {
                     onePoke.class = 'pokecandi';
                     onePoke.addEventListener('click', function(e){
                         statSetter(e.target.innerHTML);
+                        document.getElementById('pokename').value = curName;
                     });
-                    pokeListSetter.appendChild(onePoke);
+                    fragment.appendChild(onePoke);
                 }
             }
+            pokeListSetter.appendChild(fragment);
         }
     }
     pokeName.addEventListener('keyup', keyUpFn);
 
-    const btnPokeNameSubmit = document.getElementById("btn_submit");
-    btnPokeNameSubmit.addEventListener('click', function(){
-        const pokeName = document.getElementById("pokename");
-        var curName = pokeName.value;
-        statSetter(curName);
-    });
+
+    // const btnPokeNameSubmit = document.getElementById("btn_submit");
+    // btnPokeNameSubmit.addEventListener('click', function(){
+    //     const pokeName = document.getElementById("pokename");
+    //     var curName = pokeName.value;
+    //     statSetter(curName);
+    // });
 
     document.getElementById('btn calculator').addEventListener('click', function(){
         const SampleTable = document.getElementById('sample table');
@@ -155,6 +169,60 @@ window.onload = function() {
                 EV = Number(EV);
                 curCol.children[4].firstChild.value = Math.floor(((base * 2 + IV + EV / 4) * 0.5 + 5) * corr);
             }
+        }
+    })
+
+    var moves = document.getElementsByClassName('move');
+    for (var i=0; i<moves.length; i++) {
+        moves[i].addEventListener('click', function(e){
+            const bottomDiv = document.getElementById('bottom div');
+            while (bottomDiv.hasChildNodes()) {
+                bottomDiv.removeChild(bottomDiv.firstChild);
+            }
+            const moveListSetter = document.createElement('ul');
+            moveListSetter.id = "movelist";
+            var fragment = new DocumentFragment();
+            Object.keys(moveList).forEach(function(v){
+                const oneMove = document.createElement('li');
+                oneMove.innerHTML = v;
+                oneMove.addEventListener('click', function() {
+                    e.target.value = v;
+                })
+                fragment.appendChild(oneMove);
+            })
+            moveListSetter.appendChild(fragment);
+            bottomDiv.appendChild(moveListSetter);
+        });
+        moves[i].addEventListener('keyup', function(el){
+            if (!throttle) {
+                setTimeout(() => {
+                    throttle = null;
+                }, 100);
+                throttle = el.target.value;
+                var moveListSetter = document.getElementById('movelist');
+                while (moveListSetter.hasChildNodes()) {
+                    moveListSetter.removeChild(moveListSetter.firstChild);
+                }
+                var moveArr = [];
+                moveArr = Object.keys(moveList);
+                var fragment = new DocumentFragment();
+                for (var i=0; i<moveArr.length; i++) {
+                    if (moveArr[i].includes(throttle)) {
+                        var curName = moveArr[i];
+                        var oneMove = document.createElement('li');
+                        oneMove.innerHTML = `${curName}`;
+                        fragment.appendChild(oneMove);
+                    }
+                }
+                moveListSetter.appendChild(fragment);
+            }
+        })
+    }
+    
+    const buttonTest = document.getElementById('test').addEventListener('click', function(){
+        const bottomDiv = document.getElementById('bottom div');
+        while (bottomDiv.hasChildNodes()) {
+            bottomDiv.removeChild(bottomDiv.firstChild);
         }
     })
 }

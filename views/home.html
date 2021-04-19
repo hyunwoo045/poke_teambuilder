@@ -4,14 +4,26 @@
         <title>POKECAL</title>
         <meta charset="utf-8">
         <script src="/index_bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.min.js"></script>
     </head>
     <body>
+        <div id='team builder' style="float:left; width:650px">
         <h2><a href="home.html">POKE CALCULATOR</a></h2>
         <br><br>
-        -- 포켓몬 -- <br>
-        <input type="text" id="pokename">
+        <div>이름: <input type="text" id="pokename" style="width:75px"></div>
+        <div id="sample moves" style="float:left">
+            --- 기술 --- <br>
+            <input type="text" style="width:75px"><br>
+            <input type="text" style="width:75px"><br>
+            <input type="text" style="width:75px"><br>
+            <input type="text" style="width:75px"><br>
+        </div>
+        <div id='div sample chart'>
+            <canvas id='sample chart'></canvas>
+        </div>
         <button id="btn_submit"> Search </button>
         <br>
+        <div id='div sample builder'>
         <table id='sample builder'>
             <tbody id='sample table'>
             <tr id='col label'>
@@ -66,8 +78,13 @@
             </tbody>
         </table>
         <button id='btn calculator'>계산</button>
+        </div>
         <ul id="pokelist"></ul>
+    </div>
+    
+    <div id="board" style="width:0px; height:1000px; float: left; border:1px inset; margin-left:50px">
 
+    </div>
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/KrK5XlhpRhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     </body>
     

@@ -1,5 +1,58 @@
 import Dex from './pokedex.js';
+import moveList from './movelist.js';
+
 window.onload = function() {
+    var chartConfig = {
+        type: 'bar',
+        data: {
+            labels: ['HP', 'Atk', 'Def', 'Sp.Atk', 'Sp.Def', 'Speed'],
+            datasets: [{
+                label: '',
+                data: [0, 0, 0, 0, 0, 0],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                  ],
+                borderWidth: 1
+            }],
+        },
+        options:{
+            responsive: false,
+            scales: {
+                x: {
+                    suggestedMin: 0,
+                    suggestedMax: 300,
+                    ticks: {
+                        font: {
+                            size: 0
+                        }
+                    },
+                    grid: {
+                        color: 'white'
+                    }
+                },
+                y: {
+                    ticks: {
+                        font: {
+                            size: 9
+                        }
+                    },
+                    grid: {
+                        color: 'white'
+                    }
+                }
+            },
+            indexAxis: 'y',
+        }
+    }
+    let sampleChart = document.getElementById('sample chart').getContext('2d');
+    let barChart = new Chart(sampleChart, chartConfig)
+
     var statSetter = function(pokeName) {
         const pokeInfo = Dex[pokeName];
         var hp = pokeInfo['H'];
@@ -14,6 +67,17 @@ window.onload = function() {
         document.getElementById('SpAstat').value = spa;
         document.getElementById('SpDstat').value = spd;
         document.getElementById('Spdstat').value = spe;
+        var statDate = [hp, atk, def, spa, spd, spe];
+        var dataset = chartConfig.data.datasets;
+        for (var i=0; i<dataset.length; i++){
+            var data = dataset[i].data;
+            dataset[i].label = pokeName;
+            for (var j=0; j<data.length; j++) {
+                data[j] = statDate[j];
+            }
+            // dataset[i] = statDate[i];
+        }
+        barChart.update();
         return;
     }
 

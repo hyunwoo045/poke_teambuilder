@@ -1,5 +1,7 @@
 import Dex from './../data/pokedex.js';
 import moveList from './../data/movelist.js';
+import sampleCreator from './sampleExporter.js';
+import css from './style.css';
 
 window.onload = function() {
     var chartConfig = {
@@ -155,10 +157,8 @@ window.onload = function() {
             var EV = curCol.children[3].firstChild.value;
             if (i===1) {
                 curCol.children[4].firstChild.value = Math.floor(((base * 2 + IV + EV / 4) * 0.5) + 10 + 50);
-                // console.log(result);
             } else {
                 var corr = 1;
-                console.log(EV.slice(-1));
                 if (EV.slice(-1) === '+') {
                     EV = EV.substring(0, EV.length - 1);
                     corr = 1.1;
@@ -219,10 +219,25 @@ window.onload = function() {
         })
     }
     
-    const buttonTest = document.getElementById('test').addEventListener('click', function(){
-        const bottomDiv = document.getElementById('bottom div');
-        while (bottomDiv.hasChildNodes()) {
-            bottomDiv.removeChild(bottomDiv.firstChild);
+    const buttonTest = document.getElementById('export').addEventListener('click', function(){
+        var pokeName = document.getElementById('pokename').value;
+        var EVs = [];
+        var RVs = [];
+        var moves = [];
+        var movesDiv = document.getElementsByClassName('move');
+        console.log(movesDiv);
+        for (var i=0; i<movesDiv.length; i++) {
+            moves.push(movesDiv[i].value);
         }
+        console.log(moves);
+        var tBody = document.getElementById('sample table');
+        for(var i=1; i<tBody.children.length; i++) {
+            var cur = tBody.children[i];
+            var EV = cur.children[3].firstChild.value;
+            var RV = cur.children[4].firstChild.value;
+            EVs.push(EV);
+            RVs.push(RV);
+        }
+        sampleCreator(pokeName, RVs, EVs, moves);
     })
 }

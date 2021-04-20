@@ -1,0 +1,15 @@
+.sampleTable {
+    width: 150px;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+.sampletr {
+    width: 150px;
+    text-align: center;
+    border: 1px solid #444444;
+}
+.sampletd {
+    width: 50px;
+    border: 1px solid #444444;
+    font-size: 8px;
+}

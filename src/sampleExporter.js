@@ -2,6 +2,7 @@ var sampleCreator = function(pokeName, RVs, EVs, moves) {
     var arr = ['체력', '공격', '방어', '특수공격', '특수방어', '스피드'];
     var exportBoard = document.getElementById('board');
     var divSample = document.createElement('div');
+    divSample.style ="margin-top: 10px"
     var pokeNameLabel = document.createElement('label');
     pokeNameLabel.style = "text-align:center; float:left; font-size:8px; width:75px";
     pokeNameLabel.innerHTML = pokeName;

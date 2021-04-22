@@ -13,3 +13,35 @@
     border: 1px solid #444444;
     font-size: 8px;
 }
+
+.col {
+    font-size: 8px;
+    height: 30px;
+    display: inline-block;
+}
+.pokeicon {
+    width: 30px;
+}
+.pokename {
+    width: 130px;
+}
+.poketype {
+    width: 75px;
+}
+.pokeability {
+    width: 120px;
+    text-align: center;
+}
+.pokestat {
+    width: 25px;
+}
+.li {
+    vertical-align: center;
+}
+#listsetter {
+    list-style-type: none;
+    margin: 0;
+    display: block;
+    clear: both;
+    word-wrap: normal;
+}

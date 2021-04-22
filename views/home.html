@@ -7,13 +7,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.min.js"></script>
     </head>
     <body>
-        <h2>POKEMON SAMPLE BUILDER</a></h2>
-        <div id='team builder' style="float:left; width:500px">
+        <h2>POKEMON SAMPLE BUILDER</h2>
+        <div id='team builder' style="float:left; width:700px">
             <br><br>
             <div>
                 이름: <input type="text" id="pokename" style="width:75px">
                 도구: <input type="text" id="item" style="width:75px">
                 특성: <input type="text" id="ability" style="width:75px"></div>
+            <div style="float: left">
+                <img id="sprite">
+            </div>
             <div id="sample moves" style="float:left">
                 <br> --- 기술 --- <br>
                 <input type="text" class='move' style="width:100px"><br>
@@ -81,8 +84,7 @@
             </table>
             <button id='btn calculator'>계산</button> <button id='export'>저장</button>
         </div>
-        <div id='bottom div'>
-        </div>
+        <div id='bottom div'></div>
     </div>
     
     <div id="board" style="width:500px; height:1000px; float: left; border:1px inset; margin-left:50px">

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const qs = require('querystring');
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -15,4 +16,4 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-var router = require('./router/main.js')(app, fs);
+var router = require('./router/main.js')(app, fs, qs);

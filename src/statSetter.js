@@ -1,13 +1,13 @@
 import Dex from './../data/pokedex.js';
 
 var statSetter = function(pokeName, barChart, chartConfig) {
-    const pokeInfo = Dex[pokeName];
-    var hp = pokeInfo['H'];
-    var atk = pokeInfo['A'];
-    var def = pokeInfo['B'];
-    var spa = pokeInfo['C'];
-    var spd = pokeInfo['D'];
-    var spe = pokeInfo['S'];
+    const pokeInfo = Dex[pokeName]["baseStats"];
+    var hp = pokeInfo['hp'];
+    var atk = pokeInfo['atk'];
+    var def = pokeInfo['def'];
+    var spa = pokeInfo['spa'];
+    var spd = pokeInfo['spd'];
+    var spe = pokeInfo['spe'];
     document.getElementById('HPstat').value = hp;
     document.getElementById('Atkstat').value = atk;
     document.getElementById('Defstat').value = def;

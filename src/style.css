@@ -1,21 +1,5 @@
-.sampleTable {
-    width: 150px;
-    border: 1px solid #444444;
-    border-collapse: collapse;
-}
-.sampletr {
-    width: 150px;
-    text-align: center;
-    border: 1px solid #444444;
-}
-.sampletd {
-    width: 50px;
-    border: 1px solid #444444;
-    font-size: 8px;
-}
-
 .col {
-    font-size: 8px;
+    font-size: 10px;
     height: 30px;
     display: inline-block;
 }
@@ -34,6 +18,27 @@
 }
 .pokestat {
     width: 25px;
+}
+.movename {
+    width: 155px;
+}
+.movetype {
+    width: 35px;
+}
+.movecategory {
+    width: 35px;
+}
+.movedamage {
+    width: 30px;
+}
+.moveaccuracy {
+    width: 50px;
+}
+.movepp {
+    width: 23px;
+}
+.moveprior {
+    width: 23px;
 }
 .li {
     vertical-align: center;

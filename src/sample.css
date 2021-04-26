@@ -1,0 +1,34 @@
+.samplechart {
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 1px solid #444444;
+    width: 400px;
+    height: 150px;
+}
+.samplesprite {
+    margin-left: 5px;
+    float: left;
+}
+.samplestattable {
+    margin-top: 5px;
+    float: left;
+}
+.samplemovelist {
+    margin-left: 5px;
+    float: left;
+}
+.sampleTable {
+    width: 150px;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+.sampletr {
+    width: 150px;
+    text-align: center;
+    border: 1px solid #444444;
+}
+.sampletd {
+    width: 50px;
+    border: 1px solid #444444;
+    font-size: 8px;
+}

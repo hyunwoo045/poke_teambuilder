@@ -1,9 +1,10 @@
 import sampleCreator from './sampleExporter.js';
 import getChartConfig from './chart.config.js';
 import RVCalculator from './RVcalculator.js';
-import keyupListSetter from './keyupListSetter.js';
-import listLoader from './ListLoader.js';
+import pokeListLoader from './pokeListLoader.js';
+import moveListLoader from './moveListLoader.js';
 import css from './style.css';
+import samplecss from './sample.css';
 
 window.onload = function() {
     let sampleChart = document.getElementById('sample chart').getContext('2d');
@@ -11,21 +12,23 @@ window.onload = function() {
     let barChart = new Chart(sampleChart, chartConfig);
     const pokeName = document.getElementById("pokename");
     pokeName.addEventListener('click', function(e){
-        listLoader(e, 'poke', barChart, chartConfig);
+        pokeName.value = '';
+        pokeListLoader(e, barChart, chartConfig);
     });
     pokeName.addEventListener('keyup', function(e) {
-        keyupListSetter(e, 'poke', barChart, chartConfig);
+        pokeListLoader(e, barChart, chartConfig);
     });
-    document.getElementById('btn calculator').addEventListener('click', RVCalculator);
     let moves = document.getElementsByClassName('move');
     for (let i=0; i<moves.length; i++) {
         moves[i].addEventListener('click', function(e){
-            listLoader(e, 'move');
+            moveListLoader(e);
         });
         moves[i].addEventListener('keyup', function(e){
-            keyupListSetter(e, 'move', barChart, chartConfig);
+            moveListLoader(e);
         })
     }
+
+    document.getElementById('btn calculator').addEventListener('click', RVCalculator);
     
     const buttonExport = document.getElementById('export').addEventListener('click', function(){
         let pokeName = document.getElementById('pokename').value;

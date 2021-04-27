@@ -7,16 +7,16 @@ import css from './style.css';
 import samplecss from './sample.css';
 
 window.onload = function() {
-    let sampleChart = document.getElementById('sample chart').getContext('2d');
-    let chartConfig = getChartConfig();
-    let barChart = new Chart(sampleChart, chartConfig);
+    // let sampleChart = document.getElementById('sample chart').getContext('2d');
+    // let chartConfig = getChartConfig();
+    // let barChart = new Chart(sampleChart, chartConfig);
     const pokeName = document.getElementById("pokename");
     pokeName.addEventListener('click', function(e){
         pokeName.value = '';
-        pokeListLoader(e, barChart, chartConfig);
+        pokeListLoader(e);
     });
     pokeName.addEventListener('keyup', function(e) {
-        pokeListLoader(e, barChart, chartConfig);
+        pokeListLoader(e);
     });
     let moves = document.getElementsByClassName('move');
     for (let i=0; i<moves.length; i++) {

@@ -28,7 +28,11 @@ let sampleCreator = function(pokeName, RVs, EVs, moves) {
         resTd.className = "sampletd";
         sampleTr.appendChild(resTd);
         let EVsTd = document.createElement('td');
-        EVsTd.innerHTML = EVs[i]  // 노력치 적용자리
+        if (EVs[i] === '0') {
+            EVsTd.innerHTML = '';
+        } else {
+            EVsTd.innerHTML = EVs[i]  // 노력치 적용자리
+        }
         EVsTd.className = "sampletd";
         sampleTr.appendChild(EVsTd);
         sampleTable.appendChild(sampleTr);

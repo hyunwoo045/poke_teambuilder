@@ -1,10 +1,17 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+body, input, button {
+    font-family: 'Hanna', sans-serif;
+}
+
 .col {
-    font-size: 10px;
-    height: 30px;
+    font-size: 12px;
+    height: 45px;
     display: inline-block;
+    vertical-align: middle;
+    text-align: center;
 }
 .pokeicon {
-    width: 30px;
+    width: 40px;
 }
 .pokename {
     width: 130px;
@@ -13,6 +20,10 @@
     width: 75px;
 }
 .pokeability {
+    width: 120px;
+    text-align: center;
+}
+.pokehiddenability {
     width: 120px;
     text-align: center;
 }
@@ -26,7 +37,7 @@
     width: 35px;
 }
 .movecategory {
-    width: 35px;
+    width: 50px;
 }
 .movedamage {
     width: 30px;
@@ -38,15 +49,18 @@
     width: 23px;
 }
 .moveprior {
-    width: 23px;
+    width: 35px;
 }
-.li {
-    vertical-align: center;
+.result {
+    height: 50px;
+    vertical-align: middle;
 }
 #listsetter {
     list-style-type: none;
     margin: 0;
     display: block;
     clear: both;
-    word-wrap: normal;
+}
+#listholder {
+    margin-top: 20px;
 }

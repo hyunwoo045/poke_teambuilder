@@ -15,13 +15,13 @@ var statSetter = function(pokeName, barChart, chartConfig) {
     document.getElementById('SpDstat').value = spd;
     document.getElementById('Spdstat').value = spe;
     var statDate = [hp, atk, def, spa, spd, spe];
-    var dataset = chartConfig.data.datasets;
-    for (var i=0; i<dataset.length; i++){
-        var data = dataset[i].data;
-        for (var j=0; j<data.length; j++) {
-            data[j] = statDate[j];
-        }
-    }
-    barChart.update();
+    // var dataset = chartConfig.data.datasets;
+    // for (var i=0; i<dataset.length; i++){
+    //     var data = dataset[i].data;
+    //     for (var j=0; j<data.length; j++) {
+    //         data[j] = statDate[j];
+    //     }
+    // }
+    // barChart.update();
 }
 export default statSetter;

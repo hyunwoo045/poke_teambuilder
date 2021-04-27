@@ -3,6 +3,7 @@ import getChartConfig from './chart.config.js';
 import RVCalculator from './RVcalculator.js';
 import pokeListLoader from './pokeListLoader.js';
 import moveListLoader from './moveListLoader.js';
+import itemListLoader from './itemListLoader.js';
 import css from './style.css';
 import samplecss from './sample.css';
 
@@ -18,7 +19,7 @@ window.onload = function() {
     pokeName.addEventListener('keyup', function(e) {
         pokeListLoader(e);
     });
-    let moves = document.getElementsByClassName('move');
+    const moves = document.getElementsByClassName('move');
     for (let i=0; i<moves.length; i++) {
         moves[i].addEventListener('click', function(e){
             moveListLoader(e);
@@ -27,7 +28,16 @@ window.onload = function() {
             moveListLoader(e);
         })
     }
+    const itemset = document.getElementById('item');
+    itemset.addEventListener('click', function(e) {
+        itemset.value = '';
+        itemListLoader(e);
+    });
+    itemset.addEventListener('keyup', function(e) {
+        itemListLoader(e);
+    });
 
+    
     document.getElementById('btn calculator').addEventListener('click', RVCalculator);
     
     const buttonExport = document.getElementById('export').addEventListener('click', function(){

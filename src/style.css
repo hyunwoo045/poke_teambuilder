@@ -51,6 +51,9 @@ body, input, button {
 .moveprior {
     width: 35px;
 }
+.itemname, .itemengname, .itemjapname {
+    width: 110px;
+}
 .result {
     height: 50px;
     vertical-align: middle;

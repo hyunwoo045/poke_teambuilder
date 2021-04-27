@@ -4,6 +4,7 @@ import RVCalculator from './RVcalculator.js';
 import pokeListLoader from './pokeListLoader.js';
 import moveListLoader from './moveListLoader.js';
 import itemListLoader from './itemListLoader.js';
+import abilityListLoader from './abilityListLoader.js';
 import css from './style.css';
 import samplecss from './sample.css';
 
@@ -22,6 +23,7 @@ window.onload = function() {
     const moves = document.getElementsByClassName('move');
     for (let i=0; i<moves.length; i++) {
         moves[i].addEventListener('click', function(e){
+            moves[i].value = '';
             moveListLoader(e);
         });
         moves[i].addEventListener('keyup', function(e){
@@ -37,7 +39,16 @@ window.onload = function() {
         itemListLoader(e);
     });
 
-    
+    const abilityset = document.getElementById('ability');
+    abilityset.addEventListener('click', function(e){
+        abilityset.value = '';
+        abilityListLoader(e);
+        
+    });
+    abilityset.addEventListener('keyup', function(e) {
+        abilityListLoader(e);
+    });
+
     document.getElementById('btn calculator').addEventListener('click', RVCalculator);
     
     const buttonExport = document.getElementById('export').addEventListener('click', function(){

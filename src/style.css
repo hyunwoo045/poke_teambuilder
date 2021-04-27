@@ -19,11 +19,7 @@ body, input, button {
 .poketype {
     width: 75px;
 }
-.pokeability {
-    width: 120px;
-    text-align: center;
-}
-.pokehiddenability {
+.pokeability, .pokehiddenability {
     width: 120px;
     text-align: center;
 }
@@ -52,6 +48,9 @@ body, input, button {
     width: 35px;
 }
 .itemname, .itemengname, .itemjapname {
+    width: 100px;
+}
+.abilitycategory, .abilityname {
     width: 110px;
 }
 .result {

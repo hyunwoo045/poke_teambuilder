@@ -4,6 +4,7 @@
     border: 1px solid #444444;
     width: 400px;
     height: 150px;
+    font-size: 8px;
 }
 .samplesprite {
     margin-left: 5px;
@@ -15,7 +16,8 @@
 }
 .samplemovelist {
     margin-left: 5px;
-    float: left;
+    font-size: 8px;
+    height: 96px;
 }
 .sampleTable {
     width: 150px;

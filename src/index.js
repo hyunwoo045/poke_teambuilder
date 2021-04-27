@@ -53,6 +53,8 @@ window.onload = function() {
     
     const buttonExport = document.getElementById('export').addEventListener('click', function(){
         let pokeName = document.getElementById('pokename').value;
+        let pokeItem = document.getElementById('item').value;
+        let pokeAbility = document.getElementById('ability').value;
         let EVs = [];
         let RVs = [];
         let moves = [];
@@ -70,6 +72,6 @@ window.onload = function() {
             EVs.push(EV);
             RVs.push(RV);
         }
-        sampleCreator(pokeName, RVs, EVs, moves);
+        sampleCreator(pokeName, pokeItem, pokeAbility, RVs, EVs, moves);
     })
 }

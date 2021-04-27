@@ -28,6 +28,7 @@ body, input, button {
 }
 .movename {
     width: 155px;
+    text-align: left;
 }
 .movetype {
     width: 35px;
